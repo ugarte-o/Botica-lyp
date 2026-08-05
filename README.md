@@ -1,2 +1,167 @@
-# Botica-lyp
-Botica lyp un sistema web desarrollado para mejorar la administración y el control de una botica. La plataforma permite gestionar productos, inventario, pedidos, cobranza y reportes desde una interfaz organizada y fácil de utilizar.
+# Welcome to Meralda - mwPHPlib
+
+Meralda is a comprehensive PHP and JavaScript library developed with decades of experience in building information systems. Named after our beloved cat who inspired creativity and companionship, Meralda aims to empower developers by providing a versatile set of tools and utilities for web development.
+
+## About Meralda
+
+Meralda is the culmination of decades of software development expertise, starting from the creation of FaciPub in 2003, a popular CMS, to the evolution of DrSoft, a flexible platform for data gathering and reporting since 2014. Along the way, we encountered challenges, learned valuable lessons, and honed our craft, which eventually led to the birth of Meralda in 2024.
+
+## Key Features
+
+- **Modularity:** Meralda is designed with modularity in mind, allowing developers to pick and choose components based on their project requirements.
+- **Flexibility:** Whether you're building a content management system, a data-driven application, or a responsive website, Meralda offers the flexibility to adapt to diverse use cases.
+- **Getting Started:** To start using Meralda in your projects, simply clone the repository and follow the instructions in the documentation.
+- **Contributing:** We welcome contributions from the community! Whether it's fixing bugs, adding new features, or improving documentation, every contribution is valuable.
+- **License:** Meralda is open-source software released under the [MIT License](LICENSE). You are free to use, modify, and distribute Meralda for both commercial and non-commercial purposes.
+
+## 🛠️ Initialize Your App
+To start a new application using Meralda:
+1. Copy the example application files from `example/demo/app` to the `src/app` directory:
+   ```bash
+   cp -r example/demo/app src/app
+2. Edit the file src/app/cfg/db.php to configure your database connection.
+3. Review and adjust other configuration files inside src/app/cfg/ as needed to fit your environment.
+
+
+## About mwPHPlib (by Rodrigo Vecco Haddad)
+
+mwPHPlib, now known as Meralda, is a collection of PHP classes designed to facilitate the development of complex applications in PHP. These classes and development techniques and methods are the result of over 20 years of experience in this field, providing resources to build robust web platforms with significant time savings. The modular structure allows grouping classes into folders and files that relate to their names and making them available as they are required through automatic loading mechanisms. Typically, an application developed with this platform will have a main object called an application, on which various object handlers will depend, which will be loaded on demand. 
+
+Created by Rodrigo Vecco Haddad (rodrigo@novoingenios.com).
+
+# Meralda
+
+Meralda uses **Git submodules** for managing some parts of the project. To ensure you get the complete repository with all submodules, follow these instructions.
+
+## 🚀 Clone the Repository with Submodules
+
+To properly clone Meralda along with all its submodules, use the following command:
+
+```bash
+git clone --recurse-submodules https://github.com/rodrigovecco/meralda.git
+
+If You Already Cloned the Repo (Without Submodules)
+```bash
+git submodule update --init --recursive
+```
+
+## 🏗️ Creating a New Meralda Site/App/Portal
+
+To create a new Meralda-based application with your own repository:
+
+1. **Clone the complete Meralda repository with submodules:**
+   ```bash
+   git clone --recurse-submodules https://github.com/rodrigovecco/meralda.git my-project
+   cd my-project
+   ```
+
+2. **Remove the original Meralda remote:**
+   ```bash
+   git remote remove origin
+   ```
+
+3. **Set up your new repository:**
+   - Create an empty repository on GitHub/GitLab/Bitbucket (don't initialize with README)
+   - Add your new remote:
+   ```bash
+   git remote add origin https://github.com/yourusername/your-project.git
+   git push -u origin main
+   ```
+
+4. **Update submodules (keep them connected to Meralda):**
+   The submodules remain connected to their original Meralda remotes, allowing you to receive updates:
+   ```bash
+   git submodule update --remote --merge
+   ```
+
+This approach allows you to:
+- Start with the full Meralda framework
+- Maintain your own application code in your repository
+- Receive updates from Meralda submodules independently
+- Keep your customizations separate from the base framework
+
+## 📦 Third-Party Submodules Structure
+
+Meralda uses two main third-party submodules:
+
+- **src/public_html/res/thirdparty**: Contains public client-side libraries (JavaScript, CSS, etc.) used in the browser. This is a Git submodule pointing to `meralda-thirdparty-public`.
+- **src/mwap/modulesext**: Contains server-side and PHP modules, not exposed to the public web. This is a Git submodule pointing to `meralda-thirdparty-modules`.
+
+This separation ensures that only safe, public assets are available in the web root, while PHP and sensitive modules remain in a non-public directory.
+
+Both submodules are managed via Git for version control and easy updates. The old `thirdparty.zip` is no longer used.
+
+### How to update submodules
+
+To update all submodules to their latest versions:
+
+```bash
+git submodule update --remote --merge
+```
+
+---
+
+## 🤖 AI-Assisted Project Setup (Agent Workflow)
+
+Meralda includes a structured set of AI agent instruction files to help you set up and develop a project with minimal manual steps. This is the recommended way to start a new project when using an AI coding assistant (GitHub Copilot, Cursor, etc.).
+
+### How it works
+
+1. **Bootstrap agent** — a workspace-level `AGENTS.md` drives the initial setup: cloning, submodules, new remote, database, virtual host.
+   A template is available at `docs/ai/templates/AGENTS.bootstrap.md`.
+
+2. **Agent config file** — `meralda-agent.config.yml` at the workspace root tells every agent which paths are read-only, where the project module lives, and which other Meralda projects can be used as reference.
+   Template: `docs/ai/templates/meralda-agent.config.yml`.
+
+3. **Specialized agents** — once the project is initialized, the agents in `docs/agents/` cover each development phase:
+
+| Agent file | When to use |
+|---|---|
+| `post-bootstrap-app-init.md` | Copy demo → `src/app/`, review submodules, set up database |
+| `module-init.md` | Create the project's custom module (replaces the demo) |
+| `app-customization.md` | Configure `cfg.ini`, SMTP, locale, login page |
+| `reference-projects.md` | Register other Meralda projects as reference for agents |
+| `architecture-overview.md` | Read before any development task — entry points, autoloader, init chain |
+| `module-development.md` | Managers, items, collections, queries, AJAX endpoints, PHPDoc |
+| `ui-development.md` | Admin UI classes, data grids, forms |
+
+### Quick start
+
+```
+workspace-root/
+├── AGENTS.md                    ← copy from docs/ai/templates/AGENTS.bootstrap.md
+├── meralda-agent.config.yml     ← copy from docs/ai/templates/meralda-agent.config.yml
+└── meralda/                     ← this repository
+```
+
+1. Create a workspace folder and place the two template files at the root.
+2. Tell the AI assistant to read `AGENTS.md` and follow the bootstrap workflow.
+3. After bootstrap, switch to the appropriate specialized agent from `docs/agents/` for each task.
+
+### One-shot prompt for VS Code Chat (clone + agents)
+
+If you want the AI to perform the full bootstrap without manually cloning first, copy/paste this prompt in VS Code Chat:
+
+```text
+Set up a new Meralda workspace automatically.
+
+Requirements:
+1) Use the currently opened workspace root as destination.
+2) If a clone folder name is required, use mymeraldaproject as the default value.
+3) Clone https://github.com/rodrigovecco/meralda.git using --recurse-submodules into ./mymeraldaproject.
+4) At the workspace root (one level above the cloned mymeraldaproject folder), copy:
+   - mymeraldaproject/docs/ai/templates/AGENTS.bootstrap.md -> AGENTS.md
+   - mymeraldaproject/docs/ai/templates/meralda-agent.config.yml -> meralda-agent.config.yml
+5) If the repository already exists locally, run:
+   git submodule update --init --recursive
+6) Validate and report:
+   - git submodule status
+   - that AGENTS.md exists at workspace root
+   - that meralda-agent.config.yml exists at workspace root
+7) Do not ask me to run commands manually. Execute the required terminal commands yourself.
+8) At the end, show a short summary of what was created and the next recommended agent file to use.
+```
+
+> The agents never modify read-only submodules. All project code lives in `src/app/` and `src/mwap/modules/[your-prefix]/`.
+
+See each submodule's README and LICENSE for more information.

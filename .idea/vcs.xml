@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/docs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/mwap/modules/mw" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/mwap/modules/themes/default" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/mwap/modulesext" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/public_html/res/css" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/public_html/res/js" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/public_html/res/meralda" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/public_html/res/themes/default" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/public_html/res/thirdparty" vcs="Git" />
+  </component>
+</project>
