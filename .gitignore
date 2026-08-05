@@ -1,0 +1,15 @@
+
+# Configuración privada
+src/app/cfg/db.php
+src/app/cfg/install.php
+src/app/cfg/sysmail.php
+.env
+
+# Archivos del editor
+.idea/
+.vscode/
+
+# Copias temporales
+*.bak-tunnel
+*.log
+*.tmp
