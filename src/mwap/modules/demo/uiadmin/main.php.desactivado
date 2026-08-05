@@ -1,0 +1,96 @@
+<?php
+
+class mwap_demo_uiadmin_main
+    extends mwmod_mw_ui2_def_main_def
+{
+    function __construct($ap)
+    {
+        $this->set_mainap($ap);
+
+        /*
+         * "welcome" continúa siendo la pantalla
+         * inicial de todo el administrador.
+         */
+        $this->subinterface_def_code =
+            "welcome";
+
+        $this->url_base_path =
+            "/admin/";
+
+        $this->enable_session_check();
+
+        $this->logout_script_file =
+            "logout.php";
+
+        $this->su_cods_for_side =
+       "botica,mwx,users,cfg";
+
+    }
+
+
+    function create_template()
+    {
+        return new mwtheme_default_mainuitemplate(
+            $this
+        );
+    }
+
+    function createUISessionDataMan()
+    {
+        return new mwmod_mw_data_session_man(
+            "demomainui"
+        );
+    }
+
+
+      function create_subinterface_botica()
+   {
+    return new mwap_botica_uiadmin(
+        "botica",
+        $this
+    );
+   }
+
+    /*
+     * Esta función conecta el Inicio principal
+     * con el nuevo diseño de bienvenida.
+     */
+    function create_subinterface_welcome()
+    {
+        return new mwap_demo_uiadmin_welcome(
+            "welcome",
+            $this
+        );
+    }
+
+
+  
+
+    function create_subinterface_demo()
+    {
+        return new mwmod_mw_demo_ui(
+            "demo",
+            $this
+        );
+    }
+
+    function create_subinterface_mwx()
+    {
+        $m = mw_get_autoload_manager();
+
+        if (
+            $m->class_exists(
+                "mwmod_mwx_demo_ui"
+            )
+        ) {
+            return new mwmod_mwx_demo_ui(
+                "mwx",
+                $this
+            );
+        }
+
+        return false;
+    }
+}
+
+?>
