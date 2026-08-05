@@ -1,3 +1,0 @@
-# Redirect all requests to the new thirdparty/globalize location
-RewriteEngine On
-RewriteRule ^(.*)$ /res/thirdparty/globalize/$1 [R=301,L]

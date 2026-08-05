@@ -1,3 +1,0 @@
-# Redirect all requests to the new thirdparty/dx location
-RewriteEngine On
-RewriteRule ^(.*)$ /res/thirdparty/dx/$1 [R=301,L]

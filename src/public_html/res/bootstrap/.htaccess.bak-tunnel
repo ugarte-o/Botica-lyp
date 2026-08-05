@@ -1,3 +1,0 @@
-# Redirect all requests to the new thirdparty/bootstrap location
-RewriteEngine On
-RewriteRule ^(.*)$ /res/thirdparty/bootstrap/$1 [R=301,L]
