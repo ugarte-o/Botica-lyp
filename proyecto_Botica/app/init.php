@@ -1,12 +1,18 @@
 <?php
 
-include dirname(dirname(__FILE__))."/mwap/preinit.php";
+include dirname(dirname(__FILE__)) .
+    "/mwap/preinit.php";
 
-/** @var mw_autoload_manager $GLOBALS["__mw_autoload_manager"] */
-/*Remove if you do noy want to use the demo module*/
-$GLOBALS["__mw_autoload_manager"]->create_and_add_sub_pref_man("demo",dirname(dirname(__FILE__))."/mwap/modules/demo","mwap");
-$GLOBALS["__mw_autoload_manager"]->output_error=true;
+/* Registro del módulo Botica */
+$GLOBALS["__mw_autoload_manager"]
+    ->create_and_add_sub_pref_man(
+        "botica",
+        dirname(dirname(__FILE__)) .
+            "/mwap/modules/botica",
+        "mwap"
+    );
 
+$GLOBALS["__mw_autoload_manager"]->output_error = true;
 
 
 /*Add your own modules here*/
@@ -25,7 +31,7 @@ $GLOBALS["__mw_autoload_manager"]->create_and_add_sub_pref_man("default", dirnam
 /*
 *Declaration of the main application base. Replace with the specific main application class as needed.
 */
-class mw_app extends mwap_demo_ap{
+class mw_app extends mwap_botica_ap{
 }
 $GLOBALS["__mw_main_ap"]=new mw_app();
 $GLOBALS["__mw_main_ap"]->set_instance_path(dirname(__FILE__));
