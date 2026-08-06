@@ -1,9 +1,11 @@
 <?php
-
-$data = array(
-    "host" => "127.0.0.1",
-    "db"   => "botica",
-    "user" => "meralda",
-    "pass" => "Meralda1234",
-    "port" => "3307",
+$data=array(
+	"host"=>"localhost",
+	"db"=>"meralda",
+	"user"=>"meralda",
+	"pass"=>"",
+	"port"=>"3306",
+	
 );
+
+?>
